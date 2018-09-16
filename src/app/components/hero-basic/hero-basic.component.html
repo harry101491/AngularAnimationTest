@@ -1,0 +1,18 @@
+<!-- <ul>
+  <li
+    *ngFor="let hero of heros"
+    [@heroState]="hero.state"
+    (click)="hero.toggleState()"
+  >
+  {{ hero.name }}
+  </li>
+</ul> -->
+<ul>
+  <li
+    *ngFor="let hero of heros"
+    (@flyInOut.start)="animationStart($event)"
+    (@flyInOut.done)="animationEnd($event)"
+    [@flyInOut]="'in'">
+    {{hero.name}}
+  </li>
+</ul>
