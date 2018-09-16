@@ -2,8 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Looking for Full Stack Opportunites
-Contact via Email to Harshit Pareek (NYU Grad) Software Engineer :sunglasses: :computer:
+## Author
+* **Harshit Pareek** - Software Engineer (NYU Grad) :sunglasses: :computer:
+<br />Looking for new opportunites - contact via mail - hars.pareek@nyu.edu
 
 ## Development server
 
