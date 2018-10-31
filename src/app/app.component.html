@@ -1,20 +1,42 @@
-<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-  
-  <div class="form-group">
-    <label>Name</label>
-    <input type="text" formControlName="name">
-    <!--display error message if name is not valid-->
-    <small *ngIf="!myForm.controls.name.valid" class="text-danger">
-      Name is required (minimum 5 characters).
-    </small>
-  </div>
-
-  <div formArrayName="addresses">
-    <div *ngFor="let addr of myForm.controls; let i=index">
-
+<div class="container">
+  <h4>
+    Add Customer
+  </h4>
+  <form
+    [formGroup]="myForm"
+    (ngSubmit)="save(myForm)"
+    novalidate
+  >
+    <!-- name -->
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" formControlName="name">
+      <!--display error message if name is not valid-->
+      <small *ngIf="!myForm.controls['name'].valid && myForm.controls['name'].touched" class="text-danger">
+        Name is required (minimum 5 characters).
+      </small>
     </div>
-  </div>
-</form>
+    <div formArrayName="addresses">
+      <div *ngFor="let address of myForm.controls['addresses'].controls; let i=index">
+        <div>
+          <span>Address {{i + 1}}</span>
+          <span *ngIf="myForm.controls['addresses'].controls.length > 1" (click)="removeAddress(i)">
+            Remove
+          </span>
+        </div>
+        <div [formGroupName]="i">
+          <!-- replace address implementation with our new address component -->
+          <app-address [group]="myForm.controls['addresses'].controls[i]"></app-address>
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+  </form>
+
+  <button [disabled]="!myForm.controls['addresses'].valid" (click)="addAddress()"> Add New Form </button>
+</div>
+
+
 <!-- <app-button></app-button> -->
 <!-- <div class="column">
   <h4>Enter & Leave</h4>

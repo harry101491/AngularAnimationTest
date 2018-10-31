@@ -10,13 +10,15 @@ import { ButtonComponent } from './button/button.component';
 import { HeroBasicComponent } from './components/hero-basic/hero-basic.component';
 
 import { HeroService } from "./service/hero.service";
+import { AddressComponent } from './components/address/address.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
-    HeroBasicComponent
+    HeroBasicComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
